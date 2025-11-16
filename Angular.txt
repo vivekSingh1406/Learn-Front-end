@@ -1,0 +1,17 @@
+Interpolation - {{2+2}}
+about componext
+Angular CLI(Command line interface) is a tool that helps developers create, build, test, and deploy angular applications
+
+- commands taht helps you to develop angular application
+- ng generate component login - generate components 
+
+commands
+---------
+ng version
+ng update
+ng generate 
+ng serve 
+
+
+components and custom component
+- TypeDecorator

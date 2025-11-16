@@ -1,0 +1,19 @@
+Typescript
+======================
+
+TS(It's a development tool, your project still runs JS)===> JS
+
+
+
+
+
+
+
+
+
+
+
+
+Generics in Typescript
+----------------------------
+
