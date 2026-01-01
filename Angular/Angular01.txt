@@ -1,0 +1,92 @@
+
+Types of Data Binding in Angular:-
+
+1. Interpolation ({{ }})
+=================================================
+✔ One-way data binding (Component → HTML)
+✔ Value flows from component → HTML only
+✔ Mostly used for text content
+
+Interpolation inserts a component property or expression into the HTML.
+
+export class AppComponent {
+  title = "Angular Developer";
+}
+
+<h2>{{ title }}</h2>
+
+
+2. Property Binding ([ ])
+===================================================
+✔ One-way data binding (Component → HTML)
+
+Property binding sets the value of an HTML element property using a component variable.
+
+export class AppComponent {
+  imageUrl = "assets/profile.png";
+  isDisabled = true;
+}
+
+<img [src]="imageUrl">
+<button [disabled]="isDisabled">Submit</button>
+
+📌 Interpolation sets text,
+📌 Property binding sets element properties/attributes
+
+
+3. Event Binding (( ))
+====================================================
+✔ One-way data binding (HTML → Component)
+
+Event binding listens to DOM events (click, input, change, keyup…) and triggers a method inside the component.
+
+export class AppComponent {
+  count = 0;
+
+  increase() {
+    this.count++;
+  }
+}
+
+
+<button (click)="increase()">Increase</button>
+<p>Count: {{ count }}</p>
+
+✔ Data flows from View → Component
+
+
+4. Two-Way Binding ([(ngModel)])
+===============================================
+✔ Two-way data binding (Component ↔ HTML)
+✔ Uses both property binding + event binding internally
+✔ Best for forms and input fields
+
+When the value in the input changes, the component updates.
+When the component value changes, the input updates automatically.
+
+
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [FormsModule]
+})
+export class AppModule { }
+
+
+export class AppComponent {
+  username = "";
+}
+
+<input [(ngModel)]="username" placeholder="Enter name">
+<p>You typed: {{ username }}</p>
+
+
+
+
+
+| Binding Type         | Syntax                | Direction        | Use Case                    |
+| -------------------- | --------------------- | ---------------- | --------------------------- |
+| **Interpolation**    | `{{ value }}`         | Component → HTML | For text content            |
+| **Property Binding** | `[property]="value"`  | Component → HTML | Set element properties      |
+| **Event Binding**    | `(event)="handler()"` | HTML → Component | Listen to user actions      |
+| **Two-way Binding**  | `[(ngModel)]="value"` | Component ↔ HTML | Form fields, instant update |
